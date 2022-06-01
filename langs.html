@@ -1,0 +1,379 @@
+<html>
+<head></head>
+<body>
+  <style>
+    body{
+      font-size: 10px;
+    }
+    pre{
+      font-size: .9rem;
+      margin-bottom: 0;
+    }
+    h1{
+      margin-top: 0.3rem;
+    }
+  </style>
+	<!-- <link rel="stylesheet"
+      href="highlight/styles/vs.min.css"> -->
+    <link rel="stylesheet"
+      href="highlight/styles/monokai-sublime.min.css">
+    <!--More styles: https://unpkg.com/browse/@highlightjs/cdn-assets@11.5.1/styles/-->
+	<script src="highlight/highlight.min.js"></script>
+
+
+	<script>hljs.highlightAll();</script>
+
+	<h1>C++</h1>
+	<pre><code class="language-cpp">LayerListModel* layers = m_map-&gt;basemap()-&gt;baseLayers();
+
+if (!layers || layers-&gt;isEmpty())
+  return;
+
+OfflineMapParametersKey keyForTiledLayer(layers-&gt;at(0));
+if (keyForTiledLayer.isEmpty() || keyForTiledLayer.type() != OfflineMapParametersType::ExportTileCache)
+  return;
+
+// Obtain the dictionary of parameters for taking the basemap offline.
+QMap dictionary = m_parameterOverrides-&gt;exportTileCacheParameters();
+if (!dictionary.contains(keyForTiledLayer))
+  return;
+
+// Create a new geometry around the original area of interest.
+auto bufferGeom = GeometryEngine::buffer(m_parameters.areaOfInterest(), bufferMeters);
+
+// Apply the geometry to the ExportTileCacheParameters.
+ExportTileCacheParameters&amp; exportTileCacheParam = dictionary[keyForTiledLayer];
+
+// Set the parameters back into the dictionary.
+exportTileCacheParam.setAreaOfInterest(bufferGeom);
+
+// Store the dictionary.
+m_parameterOverrides-&gt;setExportTileCacheParameters(dictionary);</code>
+	</pre>
+
+	<h1>Python</h1>
+	<pre><code class="language-python">
+nums = [2, 3, 1, 5, 6, 4, 0]
+
+print(sorted(nums))   # [0, 1, 2, 3, 4, 5, 6]
+print(nums)           # [2, 3, 1, 5, 6, 4, 0]
+
+print(nums.sort())    # None
+print(nums)           # [0, 1, 2, 3, 4, 5, 6]</code>
+	</pre>
+
+	<h1>JavaScript</h1>
+	<pre>
+		<code class="language-javascript">
+const files = [ 'foo.txt ', '.bar', '   ', 'baz.foo' ];
+let filePaths = [];
+
+for (let file of files) {
+  const fileName = file.trim();
+  if(fileName) {
+    const filePath = `~/cool_app/${fileName}`;
+    filePaths.push(filePath);
+  }
+}
+
+// filePaths = [ '~/cool_app/foo.txt', '~/cool_app/.bar', '~/cool_app/baz.foo']
+		</code>
+	</pre>
+
+	<h1>TypeScript</h1>
+	<pre>
+		<code class="language-typescript">
+function fn(x: string) {
+  console.log("Hello, " + x.toLowerCase());
+}
+
+type StringOrNumberFunc = (ns: string | number) => void;
+
+let func: StringOrNumberFunc = fn;
+func(10);
+		</code>
+	</pre>
+
+	<h1>Arcade</h1>
+	<pre>
+		<code class="language-arcade">
+// explicit return
+return ($feature.POP_2010 / $feature.POP_2000) * 100
+
+// implicit return
+($feature.POP_2010 / $feature.POP_2000) * 100
+
+// explicit return
+var myArray = [10,20,30,40,50,60,70];
+var sum = 0;
+for(var k in myArray){
+  sum += myArray[k];
+}
+return sum;
+
+// implicit return
+var myArray = [10,20,30,40,50,60,70];
+var sum = 0;
+for(var k in myArray){
+  sum += myArray[k];
+}
+sum;
+		</code>
+	</pre>
+
+	<h1>Swift</h1>
+	<pre>
+		<code class="language-swift">
+class ARExample: UIViewController {
+  typealias SceneInitFunction = () -> AGSScene
+  typealias SceneInfoType = (sceneFunction: SceneInitFunction, label: String, tableTop: Bool, trackingMode: ARLocationTrackingMode)
+  
+  /// The scene creation functions plus labels and whether it represents a table top experience.  The functions create a new scene and perform any necessary `ArcGISARView` initialization.  This allows for changing the scene and AR "mode" (table top or full-scale).
+  private var sceneInfo: [SceneInfoType] = []
+  
+  /// The current scene info.
+  private var currentSceneInfo: SceneInfoType? {
+      didSet {
+          guard let label = currentSceneInfo?.label else { return }
+          statusViewController?.currentScene = label
+      }
+  }
+}
+		</code>
+	</pre>
+
+	<h1>C#</h1>
+	<pre>
+		<code class="language-cs">
+using System.Windows;
+using System.Windows.Controls;
+
+namespace ArcGISRuntime
+{
+    public partial class ApiKeyPrompt : UserControl
+    {
+        public ApiKeyPrompt()
+        {
+            InitializeComponent();
+            Initialize();
+        }
+    }
+}
+		</code>
+	</pre>
+
+	<h1>Java</h1>
+	<pre>
+		<code class="language-java">
+import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
+import com.esri.arcgisruntime.symbology.SimpleRenderer;
+
+public class MainActivity extends AppCompatActivity {
+
+  private MapView mMapView;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+  }
+}
+		</code>
+	</pre>
+
+	<h1>HTML</h1>
+	<pre>
+		<code class="language-html">
+&lt;div class="gallery-container"&gt;
+  &lt;div class="thumbnails"&gt;&lt;/div&gt;
+  &lt;div class="slides"&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/1067/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/122/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/188/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/249/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/257/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/259/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/283/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/288/540/720"&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src="https://picsum.photos/id/299/540/720"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+		</code>
+	</pre>
+
+	<h1>Objective C</h1>
+	<pre>
+		<code class="language-objectivec">
+#import &lt;Foundation/Foundation.h&gt;
+
+int main (int argc, const char * argv[]) {
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
+    NSLog (@"hello world");
+    [pool drain];
+    return 0;
+}
+		</code>
+	</pre>
+
+	<h1>CSS</h1>
+	<pre>
+		<code class="language-css">
+html, body, #viewDiv {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#infoDiv {
+  padding: 10px;
+  width: 275px;
+}
+		</code>
+	</pre>
+
+	<h1>XML</h1>
+	<pre>
+		<code class="language-xml">
+&lt;breakfast_menu&gt;
+  &lt;food&gt;
+    &lt;name&gt;Belgian Waffles&lt;/name&gt;
+    &lt;price&gt;$5.95&lt;/price&gt;
+    &lt;description&gt;Two of our famous Belgian Waffles with plenty of real maple syrup&lt;/description&gt;
+    &lt;calories&gt;650&lt;/calories&gt;
+  &lt;/food&gt;
+&lt;/breakfast_menu&gt;
+		</code>
+	</pre>
+
+	<h1>JSON</h1>
+	<pre>
+		<code class="language-json">
+      {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    87.1875,
+                    65.07213008560697
+                  ],
+                  [
+                    74.53125,
+                    43.83452678223682
+                  ],
+                  [
+                    108.984375,
+                    58.63121664342478
+                  ],
+                  [
+                    87.1875,
+                    65.07213008560697
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      }
+		</code>
+	</pre>
+
+	<h1>QML</h1>
+	<pre>
+		<code class="language-cpp">
+import QtQuick 2.6
+import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
+import Esri.ArcGISRuntime 100.14
+
+Rectangle {
+    id: rootRectangle
+    clip: true
+    width: 800
+    height: 600
+
+    property bool viewshedInProgress: false
+    property GeoprocessingJob viewshedJob: null
+    property string statusText: ""
+
+    // Map view UI presentation at top
+    MapView {
+        id: mapView
+    }
+}
+		</code>
+	</pre>
+
+	<h1>PHP</h1>
+	<pre>
+		<code class="language-php">
+// index.php?name=david
+echo $_GET['name'];
+// index.php?name=david&surname=adams
+echo $_GET['surname'];
+$user = $_POST['username'];
+$pass = $_POST['password'];
+echo 'Your username is '  . $user . ' and your password is ' . $pass . '.';
+$url = 'http://example.com/file.json';
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HEADER, false);
+curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+$result = curl_exec($curl);
+curl_close($curl);
+		</code>
+	</pre>
+
+	<h1>Ruby</h1>
+	<pre>
+		<code class="language-ruby">
+*`which` in ruby* 
+http://stackoverflow.com/questions/2108727/which-in-ruby-checking-if-program-exists-in-path-from-ruby
+def which(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each { |ext|
+      exe = "#{path}/#{cmd}#{ext}"
+      return exe if File.executable? exe
+    }
+  end
+  return nil
+end
+
+*sort descending hash based on value*
+a = {"earn"=>2, "acq"=>11, "trade"=>3}
+1) a.sort_by{|k,v| -v}
+2) Hash[*a.sort{|a,b| b[1]<=>a[1]}.flatten]
+
+*check if a string is number*
+http://stackoverflow.com/questions/5661466/test-if-string-is-a-number-in-ruby-on-rails
+class String
+  def is_number?
+    true if Float(self) rescue false
+  end
+end
+		</code>
+	</pre>
+
+
+	<!-- 
+		Supported languages: 
+		https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md#supported-languages 
+		<pre>
+			<code class="language-">
+			</code>
+		</pre>
+	-->
+	
+
+</body>
+</html>
