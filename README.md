@@ -1,6 +1,6 @@
 # highlight.js-samples
 
-Demos: [Hello world](https://hhkaos.github.io/highlight.js-samples/) | [Multiple language examples]([https://hhkaos.github.io/highlight.js-samples/langs.html)
+Demos: [Hello world](https://hhkaos.github.io/highlight.js-samples/) | [Multiple language examples](https://hhkaos.github.io/highlight.js-samples/langs.html)
 
 * Requests needed: 4
 * Size: 43.2 KB
