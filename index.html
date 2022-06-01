@@ -1,0 +1,35 @@
+<html>
+<head></head>
+<body>
+	<link rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css">
+<script src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<pre><code class="language-cpp">LayerListModel* layers = m_map-&gt;basemap()-&gt;baseLayers();
+
+if (!layers || layers-&gt;isEmpty())
+  return;
+
+OfflineMapParametersKey keyForTiledLayer(layers-&gt;at(0));
+if (keyForTiledLayer.isEmpty() || keyForTiledLayer.type() != OfflineMapParametersType::ExportTileCache)
+  return;
+
+// Obtain the dictionary of parameters for taking the basemap offline.
+QMap dictionary = m_parameterOverrides-&gt;exportTileCacheParameters();
+if (!dictionary.contains(keyForTiledLayer))
+  return;
+
+// Create a new geometry around the original area of interest.
+auto bufferGeom = GeometryEngine::buffer(m_parameters.areaOfInterest(), bufferMeters);
+
+// Apply the geometry to the ExportTileCacheParameters.
+ExportTileCacheParameters&amp; exportTileCacheParam = dictionary[keyForTiledLayer];
+
+// Set the parameters back into the dictionary.
+exportTileCacheParam.setAreaOfInterest(bufferGeom);
+
+// Store the dictionary.
+m_parameterOverrides-&gt;setExportTileCacheParameters(dictionary);</code>
+</pre>
+</body>
+</html>
